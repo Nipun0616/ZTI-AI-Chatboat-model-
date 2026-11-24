@@ -1,0 +1,20 @@
+{
+  "name": "zti-ai-assistant",
+  "version": "1.0.0",
+  "description": "ZTI - a Gemini-powered AI assistant with streaming, voice, vision and tools",
+  "main": "server.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

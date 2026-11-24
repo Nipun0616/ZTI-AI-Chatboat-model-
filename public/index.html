@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ZTI — AI Assistant</title>
+  <meta name="theme-color" content="#0B0914" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l9 10-9 10L3 12z' fill='%237C5CFC'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <linearGradient id="zg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9B7BFF"/><stop offset="1" stop-color="#7C5CFC"/></linearGradient>
+  </defs>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></symbol>
+  <symbol id="i-diamond" viewBox="0 0 24 24"><path d="M12 2l9 10-9 10L3 12 12 2z"/><path d="M3 12h18M12 2l-3.5 10L12 22l3.5-10L12 2"/></symbol>
+  <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-analytics" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15v-4M12 15V7M17 15v-6"/></symbol>
+  <symbol id="i-performance" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></symbol>
+  <symbol id="i-google" viewBox="0 0 24 24"><path d="M17.7 6.3A8 8 0 1 0 20 12h-8"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 7l4.5 4L12 4l4.5 7L21 7l-2 12H5L3 7z"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+  <symbol id="i-volume-off" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M22 9l-6 6M16 9l6 6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-paperclip" viewBox="0 0 24 24"><path d="M21.4 11.1l-9.2 9.2a5.5 5.5 0 0 1-7.8-7.8l9.2-9.2a3.7 3.7 0 0 1 5.2 5.2l-9.2 9.2a1.8 1.8 0 0 1-2.6-2.6l8.5-8.5"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></symbol>
+  <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-5.5A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+</svg>
+
+<div class="app" id="app">
+  <div class="backdrop" id="backdrop"></div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="brand">
+      <span class="brand-logo"><svg class="ico"><use href="#i-diamond"/></svg></span>
+      <span class="brand-name">ZTI</span>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button class="nav-item" data-view="dashboard"><svg class="ico"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
+      <button class="nav-item" data-view="analytics"><svg class="ico"><use href="#i-analytics"/></svg><span>Analytics</span></button>
+      <button class="nav-item" data-view="performance"><svg class="ico"><use href="#i-performance"/></svg><span>Performance</span></button>
+      <button class="nav-item" data-view="conversions"><svg class="ico"><use href="#i-list"/></svg><span>Conversion List</span></button>
+      <button class="nav-item" data-view="alerts"><svg class="ico"><use href="#i-bell"/></svg><span>Alerts</span></button>
+      <button class="nav-item active" data-view="assistant"><svg class="ico"><use href="#i-sparkle"/></svg><span>AI Assistant</span></button>
+      <button class="nav-item" data-view="settings"><svg class="ico"><use href="#i-settings"/></svg><span>Settings</span></button>
+    </nav>
+
+    <div class="nav-section">Channels</div>
+    <nav class="nav">
+      <button class="nav-item" data-view="ch-instagram"><svg class="ico"><use href="#i-instagram"/></svg><span>Instagram</span></button>
+      <button class="nav-item" data-view="ch-facebook"><svg class="ico"><use href="#i-facebook"/></svg><span>Facebook</span></button>
+      <button class="nav-item" data-view="ch-google"><svg class="ico"><use href="#i-google"/></svg><span>Google</span></button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="upgrade-card">
+        <span class="upgrade-icon"><svg class="ico"><use href="#i-crown"/></svg></span>
+        <div class="upgrade-title">Upgrade Plan</div>
+        <div class="upgrade-sub">Unlock more power &amp; faster replies</div>
+        <button class="btn-upgrade" id="btnUpgrade">Upgrade</button>
+      </div>
+      <button class="nav-item logout" id="btnLogout"><svg class="ico"><use href="#i-logout"/></svg><span>Logout</span></button>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="btnMenu" aria-label="Open menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+
+      <div class="search pop-wrap">
+        <svg class="ico"><use href="#i-search"/></svg>
+        <input id="globalSearch" type="search" placeholder="Search..." autocomplete="off" aria-label="Search chats" />
+        <kbd class="kbd">Ctrl K</kbd>
+        <div class="popover search-results hidden" id="searchResults"></div>
+      </div>
+
+      <div class="topbar-right">
+        <button class="icon-btn" id="btnMute" title="Mute / unmute sounds" aria-label="Mute or unmute sounds"><svg class="ico"><use href="#i-volume"/></svg></button>
+        <button class="icon-btn" id="btnTheme" title="Toggle theme" aria-label="Toggle theme"><svg class="ico"><use href="#i-moon"/></svg></button>
+        <button class="icon-btn has-dot" id="btnBell" title="Alerts" aria-label="Alerts"><svg class="ico"><use href="#i-bell"/></svg></button>
+        <button class="icon-btn" id="btnMessages" title="Chat history" aria-label="Chat history"><svg class="ico"><use href="#i-mail"/></svg></button>
+        <button class="profile" id="btnProfile" title="Click to rename">
+          <span class="avatar-sm" id="profileInitial">N</span>
+          <span class="profile-text"><strong id="profileName">Nipun</strong><small>Pro Member</small></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============ AI ASSISTANT VIEW ============ -->
+    <main class="view active" id="view-assistant">
+      <div class="assistant">
+        <div class="subheader">
+          <h1 class="page-title">ZTI Assistant</h1>
+          <div class="subheader-actions">
+            <div class="pop-wrap">
+              <button class="btn ghost" id="btnHistory" data-pop="historyMenu"><svg class="ico"><use href="#i-history"/></svg><span class="hide-sm">History</span></button>
+              <div class="popover right hidden" id="historyMenu"></div>
+            </div>
+            <button class="btn" id="btnNewChat"><svg class="ico"><use href="#i-plus"/></svg><span>New Chat</span></button>
+            <div class="pop-wrap">
+              <button class="btn ghost" id="btnShare" data-pop="shareMenu"><svg class="ico"><use href="#i-share"/></svg><span>Share</span></button>
+              <div class="popover right hidden" id="shareMenu">
+                <button class="menu-item" data-share="copy"><svg class="ico"><use href="#i-copy"/></svg>Copy chat as text</button>
+                <button class="menu-item" data-share="download"><svg class="ico"><use href="#i-download"/></svg>Download as .md</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage empty" id="stage">
+          <!-- Welcome hero -->
+          <div class="hero" id="hero">
+            <div class="orb"><svg class="ico"><use href="#i-sparkle"/></svg></div>
+            <h2>What can I help with?</h2>
+          </div>
+
+          <!-- Chat thread -->
+          <div class="thread" id="thread" aria-live="polite"></div>
+
+          <!-- Composer -->
+          <form class="composer" id="composer" autocomplete="off">
+            <div class="attachments" id="attachments"></div>
+            <textarea id="input" rows="1" placeholder="Ask anything to ZTI..." aria-label="Message ZTI"></textarea>
+
+            <div class="listening hidden" id="listening">
+              <div class="wave" id="wave"></div>
+              <span>Listening… tap the mic to stop</span>
+            </div>
+
+            <div class="composer-bar">
+              <div class="bar-left">
+                <div class="pop-wrap">
+                  <button type="button" class="icon-btn" id="btnPlus" data-pop="plusMenu" title="Personality &amp; quick actions" aria-label="Personality and quick actions"><svg class="ico"><use href="#i-plus"/></svg></button>
+                  <div class="popover up hidden" id="plusMenu"></div>
+                </div>
+                <button type="button" class="icon-btn" id="btnFile" title="Upload PDF / document" aria-label="Upload document"><svg class="ico"><use href="#i-paperclip"/></svg></button>
+                <button type="button" class="icon-btn" id="btnImage" title="Upload image" aria-label="Upload image"><svg class="ico"><use href="#i-image"/></svg></button>
+                <span class="divider"></span>
+                <button type="button" class="pill" id="pillSearch" aria-pressed="false" title="Ground answers with live Google Search"><svg class="ico"><use href="#i-globe"/></svg><span>Web Search</span></button>
+                <button type="button" class="pill" id="pillCode" aria-pressed="true" title="Let Gemini run Python for accurate maths and data"><svg class="ico"><use href="#i-code"/></svg><span>Code Run</span></button>
+                <button type="button" class="pill" id="pillJson" aria-pressed="false" title="Structured JSON output (or start a message with /json)"><svg class="ico"><use href="#i-braces"/></svg><span>JSON</span></button>
+                <span class="persona-badge" id="personaBadge">Humanoid</span>
+              </div>
+              <div class="bar-right">
+                <button type="button" class="icon-btn mic" id="btnMic" title="Voice input" aria-label="Voice input"><svg class="ico"><use href="#i-mic"/></svg></button>
+                <button type="submit" class="send" id="btnSend" aria-label="Send"><svg class="ico"><use href="#i-send"/></svg></button>
+              </div>
+            </div>
+
+            <input type="file" id="fileInput" hidden multiple accept=".pdf,.txt,.md,.csv,.json,.js,.ts,.py,.html,.css,.xml,.yml,.yaml,.log,application/pdf,text/plain" />
+            <input type="file" id="imageInput" hidden multiple accept="image/png,image/jpeg,image/webp" />
+          </form>
+
+          <!-- Starter prompts -->
+          <div class="starters" id="starters">
+            <button class="starter" data-starter="summarize">
+              <span class="starter-ico"><svg class="ico"><use href="#i-file"/></svg></span>
+              <strong>Summarize &amp; Analyze</strong>
+              <small>Paste text or drop a PDF for the key points</small>
+            </button>
+            <button class="starter" data-starter="code">
+              <span class="starter-ico"><svg class="ico"><use href="#i-code"/></svg></span>
+              <strong>Write &amp; Debug Code</strong>
+              <small>Build features, fix bugs, explain snippets</small>
+            </button>
+            <button class="starter" data-starter="research">
+              <span class="starter-ico"><svg class="ico"><use href="#i-globe"/></svg></span>
+              <strong>Live Web Research</strong>
+              <small>Fresh, cited answers from Google Search</small>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ============ OTHER VIEWS (rendered by app.js) ============ -->
+    <main class="view" id="view-other"></main>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+
+<!-- Libraries (CDN). The app still works without them, just with plain-text rendering. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="audio.js?v=3"></script>
+<script src="app.js?v=3"></script>
+</body>
+</html>
